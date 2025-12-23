@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            background-color: blue;
+            color: antiquewhite;
+            padding: 10px 20px;
+        }
+        .button:hover {
+            background-color: blueviolet;
+        }
+        .button:active {
+            background-color: chartreuse;
+        }
+        .button:focus {
+            background-color: crimson;
+        }
+        .item1 + .item2 {
+            background-color: aqua;
+
+        }
+        input[type="text"]{
+            border: 2px solid red;
+            margin-bottom: 10px;
+        }
+        .container .item {
+            color: aquamarine;
+            background-color: rgb(122, 184, 238);
+        }
+        .button {
+            background-color: aqua;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button.active {
+            background-color: aquamarine;
+        }
+        .button.warning {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Container Content
+        <div class="item">
+            Item Content
+        </div>
+        
+    </div>
+    <div class="footer-container">
+        Container Content
+        <div class="item">
+            Item Content
+        </div>
+        <button class="button">Clik me</button>
+        <button class="button active">delete</button>
+        <button class="button warning">warning</button>
+
+    <div class="item1">item1</div>
+    <div class="item2">item2</div>
+
+    <input type="text" name="simple-input"><br>
+    <input type="text" name="anather-input"><br>
+    <input type="text" name="number-input"><br>
+    
+    <button class="button">clik me</button>
+
+</body>
+</html>
