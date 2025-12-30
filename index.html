@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Kanit';
+            src: url(./Kanit/Kanit-Regular.ttf);
+        }
+        body {
+            background-color: rgb(245, 11, 11);
+            font-family: 'Kanit';
+        }
+        #Register-form {
+            color: #f1db0e;
+            padding-left: 10px;
+            margin-left: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .from-control {
+            border: 0px ;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+    <!-- norespont -->
+</head>
+<body>
+    <!-- แสดงผล-->
+     
+     <div id="Register-form">Register Form</div>
+     name: <input class="form-control" type="text" name="name">
+     last name: <input type="text" name="lastname"><br>
+     age: <input type="number" name="age" min="0" max="150"><br>
+     sex:
+     <input type="radio" name="gender" value="male"> ชาย
+     <input type="radio" name="gender" value="female"> หญิง<br>
+     hobbie: 
+     <input type="checkbox" name="hobby" value="reading">อ่านหนังสือ
+     <input type="checkbox" name="hobby" value="traveling">เทืยว
+     <input type="checkbox" name="hobby" value="sports">เล่นกีฬา<br>
+     อธิบายตัวเอง: <br>
+     <textarea name="discription" rows="4" cols="50"></textarea>
+     <input type="submit" value="submit">
+    
+</body>
+</html>
