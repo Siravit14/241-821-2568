@@ -1,0 +1,10 @@
+docker docker ps --all //ดูสถานะ
+docker pull busybox
+docker create busybox ping google.com
+docker rm // ลบcontainer
+docker system pruney
+docker run nginx
+docker run -p 80:80 nginx 
+docker run -p 9000:80 nginx 
+docker run -d -p 9001:80 nginx //รันแล้วให้เด้งออก
+docker stop 22ab7e035ad3 6068e7f385d5 0feb92baca31 e8ddf528b129 //หยุดทุก container
