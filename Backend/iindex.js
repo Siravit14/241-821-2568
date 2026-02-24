@@ -1,22 +1,54 @@
 const express = require('express');
 const bodyParser = require('body-parser'); 
+const mysql = require('mysql2/promise');
 const app = express();
-
 const port = 8000;
-
 app.use(bodyParser.json());
+
 let users = [];
 let counter = 1;
 
+let conn =null
+const initDBConnection = async () => {
+     conn = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'webdb',
+        port: 8821
+    })
+}
+
+app.get('/users', async (req, res) => {
+    try {
+        const results = await conn.query('SELECT * FROM users');
+        res.json(results[0]);
+    } catch (error) {
+        
+        console.error("Database Error:", error); 
+        
+        res.status(500).json({ 
+            message: 'เกิดข้อผิดพลาดฝั่งเซิร์ฟเวอร์', 
+            error: error.message 
+        });
+    }
+});
+
+
+
+/*
 app.get('/users', (req, res) => {
     res.json(users);
 });
-
-app.post('/user', (req, res) => {
+*/
+app.post('/users',  async (req, res) => {
     let user = req.body;
-    user.id = counter++;
-    users.push(user);
-    res.json({message: 'User added successfully', user: user});
+    const results = await conn.query('INSERT INTO users SET ?', user);
+    console.log('results:', results);
+    res.json({
+        message: 'User added successfully',
+        data:results[0]
+    })
 });
 
 app.patch('/user/:id', (req, res) => {
@@ -43,6 +75,7 @@ app.patch('/user/:id', (req, res) => {
     res.json({message: 'User deleted successfully', data:{indexDeleted: seletedIndex}});
  });
 
-app.listen(port, () => {
+app.listen(port, async () => {
+    await initDBConnection();
     console.log(`Server is running on port ${port}`)});
 
